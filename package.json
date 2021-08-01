@@ -1,5 +1,5 @@
 {
-  "name": "react_native_y4_2021",
+  "name": "cpu_store_rn_y4_2021",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,8 +10,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@freakycoder/react-native-custom-text": "0.0.12",
-    "@freakycoder/react-native-helpers": "0.0.12",
+    "@freakycoder/react-native-custom-text": "0.1.2",
+    "@freakycoder/react-native-helpers": "1.0.1",
     "@paraboly/react-native-modal-box": "0.0.1",
     "@paraboly/react-native-video-modal": "0.0.20",
     "@react-native-async-storage/async-storage": "^1.15.5",
@@ -20,27 +20,27 @@
     "@react-navigation/drawer": "^5.12.5",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.5",
-    "react": "17.0.1",
-    "react-native": "0.64.0",
+    "react": "17.0.2",
+    "react-native": "0.64.2",
     "react-native-dynamic-vector-icons": "^1.1.6",
-    "react-native-floating-action-button": "^0.1.14",
+    "react-native-floating-action-button": "^0.2.2",
     "react-native-gesture-handler": "^1.10.3",
-    "react-native-material-ripple": "^0.8.0",
-    "react-native-paper": "^4.8.1",
+    "react-native-material-ripple": "^0.9.1",
+    "react-native-paper": "^4.9.2",
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.2.0",
-    "react-native-screens": "^3.3.0",
+    "react-native-screens": "^3.4.0",
     "react-native-vector-icons": "^8.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@babel/runtime": "^7.12.5",
-    "@react-native-community/eslint-config": "^2.0.0",
-    "babel-jest": "^26.6.3",
-    "eslint": "7.14.0",
-    "jest": "^26.6.3",
-    "metro-react-native-babel-preset": "^0.64.0",
-    "react-test-renderer": "17.0.1"
+    "@babel/core": "^7.14.8",
+    "@babel/runtime": "^7.14.8",
+    "@react-native-community/eslint-config": "^3.0.0",
+    "babel-jest": "^27.0.6",
+    "eslint": "7.32.0",
+    "jest": "^27.0.6",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "react-test-renderer": "17.0.2"
   },
   "jest": {
     "preset": "react-native"

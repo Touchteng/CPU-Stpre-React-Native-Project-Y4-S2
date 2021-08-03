@@ -1,4 +1,4 @@
-package com.react_native_y4_2021;
+package com.cpu_store_rn_y4_2021;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "react_native_y4_2021";
+    return "cpu_store_rn_y4_2021";
   }
 }

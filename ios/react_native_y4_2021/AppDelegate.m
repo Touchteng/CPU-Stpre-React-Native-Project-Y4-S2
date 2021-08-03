@@ -33,7 +33,7 @@ static void InitializeFlipper(UIApplication *application) {
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
-                                                   moduleName:@"react_native_y4_2021"
+                                                   moduleName:@"cpu_store_rn_y4_2021"
                                             initialProperties:nil];
 
   if (@available(iOS 13.0, *)) {

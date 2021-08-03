@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "react_native_y4_2021.app"
-               BlueprintName = "react_native_y4_2021"
-               ReferencedContainer = "container:react_native_y4_2021.xcodeproj">
+               BuildableName = "cpu_store_rn_y4_2021.app"
+               BlueprintName = "cpu_store_rn_y4_2021"
+               ReferencedContainer = "container:cpu_store_rn_y4_2021.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "react_native_y4_2021Tests.xctest"
-               BlueprintName = "react_native_y4_2021Tests"
-               ReferencedContainer = "container:react_native_y4_2021.xcodeproj">
+               BuildableName = "cpu_store_rn_y4_2021Tests.xctest"
+               BlueprintName = "cpu_store_rn_y4_2021Tests"
+               ReferencedContainer = "container:cpu_store_rn_y4_2021.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "react_native_y4_2021.app"
-            BlueprintName = "react_native_y4_2021"
-            ReferencedContainer = "container:react_native_y4_2021.xcodeproj">
+            BuildableName = "cpu_store_rn_y4_2021.app"
+            BlueprintName = "cpu_store_rn_y4_2021"
+            ReferencedContainer = "container:cpu_store_rn_y4_2021.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "react_native_y4_2021.app"
-            BlueprintName = "react_native_y4_2021"
-            ReferencedContainer = "container:react_native_y4_2021.xcodeproj">
+            BuildableName = "cpu_store_rn_y4_2021.app"
+            BlueprintName = "cpu_store_rn_y4_2021"
+            ReferencedContainer = "container:cpu_store_rn_y4_2021.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

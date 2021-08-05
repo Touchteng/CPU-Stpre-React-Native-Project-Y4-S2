@@ -16,9 +16,10 @@ A mobile app that displays various computer components for sale.
 
 # Tech Stack
 
-Built with React Native + Firebase + Stripe API for payment
+Built with React Native + Expo + Firebase + Stripe API for payment
 
 # Setup Instructions
 
-1. Run `npm install`
-1. Run `npm run android`
+1. Install Yarn via `npm install -g yarn`
+1. Run `yarn install`
+1. Run `yarn start`

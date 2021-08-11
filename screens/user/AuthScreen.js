@@ -4,6 +4,7 @@ import {
   View,
   KeyboardAvoidingView,
   StyleSheet,
+  Image,
   Button,
   Text,
   TextInput,
@@ -52,12 +53,8 @@ const AuthScreen = ({ navigation }) => {
   };
 
   return (
-    // <KeyboardAvoidingView
-    //   behavior="padding"
-    //   keyboardVerticalOffset={50}
-    //   style={styles.screen}
-    // >
-    <LinearGradient colors={['#ffedff', '#ffe3ff']} style={styles.gradient}>
+
+    <LinearGradient colors={['#ededed', '#ededed']} style={styles.gradient}>
       <Card style={styles.authContainer}>
         <ScrollView>
           <View style={styles.formControl}>
@@ -67,6 +64,7 @@ const AuthScreen = ({ navigation }) => {
               value={email}
               textContentType="emailAddress"
               keyboardType="email-address"
+              placeholder="example@email.com"
               autoCapitalize="none"
               autoCompleteType="email"
               returnKeyType="next"
@@ -82,6 +80,7 @@ const AuthScreen = ({ navigation }) => {
               secureTextEntry
               autoCapitalize="none"
               autoCompleteType="password"
+              placeholder="xxxxxxxxxx"
               textContentType="password"
               passwordrules="required: lower; required: upper; required: digit; required: [-]; minlength: 6;"
               onChangeText={(text) => setPassword(text)}
@@ -97,6 +96,7 @@ const AuthScreen = ({ navigation }) => {
                 secureTextEntry
                 autoCapitalize="none"
                 autoCompleteType="password"
+                placeholder="xxxxxxxxxx"
                 textContentType="password"
                 passwordrules="required: lower; required: upper; required: digit; required: [-]; minlength: 6;"
                 onChangeText={(text) => setPasswordConfirm(text)}
@@ -140,6 +140,11 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1
   },
+  tinyLogo: {
+    resizeMode: "contain",
+    width: 150,
+    height: 150,
+  },
   gradient: {
     flex: 1,
     justifyContent: 'center',
@@ -153,7 +158,13 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 10
-  }
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
 });
 
 export default AuthScreen;

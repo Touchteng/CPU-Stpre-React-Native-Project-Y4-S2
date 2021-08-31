@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { FlatList, Platform, View, Text, StyleSheet } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import React, {useEffect, useState} from 'react';
+import {FlatList, Platform, View, Text, StyleSheet} from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
+import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 import HeaderButton from '../../components/UI/HeaderButton';
 import Loader from '../../components/UI/Loader';
 import OrderItem from '../../components/shop/OrderItem';
-import { fetchOrders } from '../../store/actions/orders';
+import {fetchOrders} from '../../store/actions/orders';
 import Colors from '../../constants/Colors';
 
-const OrdersScreen = ({ navigation }) => {
+const OrdersScreen = ({navigation}) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const orders = useSelector((state) => state.orders.orders);
+  const orders = useSelector(state => state.orders.orders);
 
   const dispatch = useDispatch();
 
@@ -26,8 +26,8 @@ const OrdersScreen = ({ navigation }) => {
     orders.length !== 0 ? (
       <FlatList
         data={orders}
-        keyExtractor={(item) => item.id}
-        renderItem={(itemData) => (
+        keyExtractor={item => item.id}
+        renderItem={itemData => (
           <OrderItem
             amount={itemData.item.totalAmount}
             date={itemData.item.readableDate}
@@ -45,7 +45,7 @@ const OrdersScreen = ({ navigation }) => {
   );
 };
 
-OrdersScreen.navigationOptions = (navData) => {
+OrdersScreen.navigationOptions = navData => {
   return {
     headerTitle: 'My Orders',
     headerLeft: () => (
@@ -58,7 +58,7 @@ OrdersScreen.navigationOptions = (navData) => {
           }}
         />
       </HeaderButtons>
-    )
+    ),
   };
 };
 
@@ -66,8 +66,8 @@ const styles = StyleSheet.create({
   centered: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 export default OrdersScreen;

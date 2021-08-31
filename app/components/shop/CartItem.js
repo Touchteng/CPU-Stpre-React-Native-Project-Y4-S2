@@ -1,14 +1,8 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Platform
-} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import {View, Text, StyleSheet, TouchableOpacity, Platform} from 'react-native';
+import {Ionicons} from '@expo/vector-icons';
 
-const CartItem = ({ quantity, title, amount, deleteHandler, deletable }) => {
+const CartItem = ({quantity, title, amount, deleteHandler, deletable}) => {
   return (
     <View style={styles.cartItem}>
       <Text style={styles.itemData}>
@@ -35,29 +29,37 @@ const CartItem = ({ quantity, title, amount, deleteHandler, deletable }) => {
 };
 
 const styles = StyleSheet.create({
+  title: {
+    flex: 1,
+    fontFamily: 'open-sans',
+    fontWeight: 'bold',
+  },
   cartItem: {
+    flex: 1,
     padding: 10,
     backgroundColor: 'white',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginHorizontal: 20
+    marginHorizontal: 20,
   },
   itemData: {
+    flex: 1,
+    flexShrink: 1,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   quantity: {
     fontFamily: 'open-sans',
     color: '#888',
-    fontSize: 16
+    fontSize: 16,
   },
   mainText: {
     fontFamily: 'open-sans-bold',
-    fontSize: 16
+    fontSize: 16,
   },
   deleteButton: {
-    marginLeft: 20
-  }
+    marginLeft: 20,
+  },
 });
 
 export default CartItem;

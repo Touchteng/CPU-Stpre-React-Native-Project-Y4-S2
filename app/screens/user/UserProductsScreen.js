@@ -6,50 +6,49 @@ import {
   Alert,
   View,
   Text,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import {useSelector, useDispatch} from 'react-redux';
+import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 import HeaderButton from '../../components/UI/HeaderButton';
 import ProductItem from '../../components/shop/ProductItem';
 import Colors from '../../constants/Colors';
-import { deleteProduct } from '../../store/actions/products';
+import {deleteProduct} from '../../store/actions/products';
 
-const UserProductsScreen = ({ navigation }) => {
-  const userProducts = useSelector((state) => state.products.userProducts);
+const UserProductsScreen = ({navigation}) => {
+  const userProducts = useSelector(state => state.products.userProducts);
 
   const dispatch = useDispatch();
 
-  const editProductHandler = (id) => {
-    navigation.navigate('EditProduct', { productId: id });
+  const editProductHandler = id => {
+    navigation.navigate('EditProduct', {productId: id});
   };
 
-  const deleteHandler = (id) => {
+  const deleteHandler = id => {
     Alert.alert('Are you sure?', 'Do you really want to delete this item?', [
-      { text: 'No', style: 'default' },
+      {text: 'No', style: 'default'},
       {
         text: 'Yes',
         style: 'destructive',
         onPress: () => {
           dispatch(deleteProduct(id));
-        }
-      }
+        },
+      },
     ]);
   };
 
   return userProducts.length !== 0 ? (
     <FlatList
       data={userProducts}
-      keyExtractor={(item) => item.id}
-      renderItem={(itemData) => (
+      keyExtractor={item => item.id}
+      renderItem={itemData => (
         <ProductItem
           image={itemData.item.imageUrl}
           title={itemData.item.title}
           price={itemData.item.price}
           onSelect={() => {
             editProductHandler(itemData.item.id);
-          }}
-        >
+          }}>
           <Button
             title="Edit"
             color={Colors.primary}
@@ -59,7 +58,7 @@ const UserProductsScreen = ({ navigation }) => {
           />
           <Button
             title="Delete"
-            color={Colors.primary}
+            color={Colors.red}
             onPress={deleteHandler.bind(this, itemData.item.id)}
           />
         </ProductItem>
@@ -72,7 +71,7 @@ const UserProductsScreen = ({ navigation }) => {
   );
 };
 
-UserProductsScreen.navigationOptions = (navData) => {
+UserProductsScreen.navigationOptions = navData => {
   return {
     headerTitle: 'My Products',
     headerLeft: () => (
@@ -96,7 +95,7 @@ UserProductsScreen.navigationOptions = (navData) => {
           }}
         />
       </HeaderButtons>
-    )
+    ),
   };
 };
 
@@ -104,8 +103,8 @@ const styles = StyleSheet.create({
   centered: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 export default UserProductsScreen;

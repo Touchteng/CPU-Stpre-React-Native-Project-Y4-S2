@@ -1,27 +1,20 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import {
-  FlatList,
-  Button,
-  Platform,
-  Text,
-  View,
-  StyleSheet
-} from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import React, {useEffect, useState, useCallback} from 'react';
+import {FlatList, Button, Platform, Text, View, StyleSheet} from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
+import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 import HeaderButton from '../../components/UI/HeaderButton';
 import Loader from '../../components/UI/Loader';
 import ProductItem from '../../components/shop/ProductItem';
-import { addToCart } from '../../store/actions/cart';
-import { fetchProducts } from '../../store/actions/products';
+import {addToCart} from '../../store/actions/cart';
+import {fetchProducts} from '../../store/actions/products';
 import Colors from '../../constants/Colors';
 
-const ProductsOverviewScreen = ({ navigation }) => {
+const ProductsOverviewScreen = ({navigation}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [error, setError] = useState();
 
-  const products = useSelector((state) => state.products.allProducts);
+  const products = useSelector(state => state.products.allProducts);
 
   const dispatch = useDispatch();
 
@@ -55,7 +48,7 @@ const ProductsOverviewScreen = ({ navigation }) => {
     navigation.navigate('ProductDetail', {
       // Forward id and title
       productId: id,
-      productTitle: title
+      productTitle: title,
     });
   };
 
@@ -66,16 +59,15 @@ const ProductsOverviewScreen = ({ navigation }) => {
           onRefresh={loadProducts}
           refreshing={isRefreshing}
           data={products}
-          keyExtractor={(item) => item.id}
-          renderItem={(itemData) => (
+          keyExtractor={item => item.id}
+          renderItem={itemData => (
             <ProductItem
               image={itemData.item.imageUrl}
               title={itemData.item.title}
               price={itemData.item.price}
               onSelect={() => {
                 selectItemHandler(itemData.item.id, itemData.item.title);
-              }}
-            >
+              }}>
               <Button
                 title="View Details"
                 color={Colors.primary}
@@ -85,7 +77,7 @@ const ProductsOverviewScreen = ({ navigation }) => {
               />
               <Button
                 title="Add to Cart"
-                color={Colors.primary}
+                color={Colors.secondary}
                 onPress={() => {
                   dispatch(addToCart(itemData.item));
                 }}
@@ -113,7 +105,7 @@ const ProductsOverviewScreen = ({ navigation }) => {
   );
 };
 
-ProductsOverviewScreen.navigationOptions = (navData) => {
+ProductsOverviewScreen.navigationOptions = navData => {
   return {
     headerTitle: 'My Shop',
     headerLeft: () => (
@@ -137,7 +129,7 @@ ProductsOverviewScreen.navigationOptions = (navData) => {
           }}
         />
       </HeaderButtons>
-    )
+    ),
   };
 };
 
@@ -145,8 +137,8 @@ const styles = StyleSheet.create({
   centered: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 export default ProductsOverviewScreen;

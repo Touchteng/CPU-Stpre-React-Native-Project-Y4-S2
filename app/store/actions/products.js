@@ -12,7 +12,7 @@ export const fetchProducts = () => {
 
     try {
       const response = await fetch(
-        'https://react-native-final-y4.firebaseio.com/products.json',
+        'https://react-native-final-y4-default-rtdb.firebaseio.com/products.json',
       );
       // const response = await fetch('http://10.0.2.1:8080/api/products');
 
@@ -55,7 +55,7 @@ export const createProduct = (title, description, imageUrl, price) => {
     const {userId} = getState().auth;
 
     const response = await fetch(
-      `https://react-native-final-y4.firebaseio.com/products.json?auth=${token}`,
+      `https://react-native-final-y4-default-rtdb.firebaseio.com/products.json?auth=${token}`,
       {
         method: 'POST',
         headers: {
@@ -92,7 +92,7 @@ export const updateProduct = (id, title, description, imageUrl) => {
     const {token} = getState().auth;
 
     const response = await fetch(
-      `https://react-native-final-y4.firebaseio.com/products/${id}.json?auth=${token}`,
+      `https://react-native-final-y4-default-rtdb.firebaseio.com/products/${id}.json?auth=${token}`,
       {
         method: 'PATCH',
         headers: {
@@ -123,7 +123,7 @@ export const deleteProduct = productId => {
     const {token} = getState().auth;
 
     const response = await fetch(
-      `https://react-native-final-y4.firebaseio.com/products/${productId}.json?auth=${token}`,
+      `https://react-native-final-y4-default-rtdb.firebaseio.com/products/${productId}.json?auth=${token}`,
       {
         method: 'DELETE',
       },

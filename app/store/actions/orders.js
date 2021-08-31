@@ -7,7 +7,7 @@ export const fetchOrders = () => {
       const {userId} = getState().auth;
 
       const response = await fetch(
-        `https://react-native-final-y4.firebaseio.com/orders/${userId}.json`,
+        `https://react-native-final-y4-default-rtdb.firebaseio.com/orders/${userId}.json`,
       );
 
       if (!response.ok) {
@@ -44,7 +44,7 @@ export const addOrder = (cartItems, totalAmount) => {
     const date = new Date();
 
     const response = await fetch(
-      `https://react-native-final-y4.firebaseio.com/orders/${userId}.json?auth=${token}`,
+      `https://react-native-final-y4-default-rtdb.firebaseio.com/orders/${userId}.json?auth=${token}`,
       {
         method: 'POST',
         headers: {

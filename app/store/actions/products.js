@@ -2,18 +2,19 @@ import {
   CREATE_PRODUCT,
   UPDATE_PRODUCT,
   DELETE_PRODUCT,
-  SET_PRODUCTS
+  SET_PRODUCTS,
 } from '../../constants/ReduxConstants';
 import Product from '../../models/product';
 
 export const fetchProducts = () => {
   return async (dispatch, getState) => {
-    const { userId } = getState().auth;
+    const {userId} = getState().auth;
 
     try {
       const response = await fetch(
-        'https://expo-shop-7adf6.firebaseio.com/products.json'
+        'https://react-native-final-y4.firebaseio.com/products.json',
       );
+      // const response = await fetch('http://10.0.2.1:8080/api/products');
 
       if (!response.ok) {
         throw new Error('Something went wrong');
@@ -31,16 +32,16 @@ export const fetchProducts = () => {
             resData[key].title,
             resData[key].imageUrl,
             resData[key].description,
-            resData[key].price
-          )
+            resData[key].price,
+          ),
         );
 
       dispatch({
         type: SET_PRODUCTS,
         products: loadedProducts,
         userProducts: loadedProducts.filter(
-          (product) => product.ownerId === userId
-        )
+          product => product.ownerId === userId,
+        ),
       });
     } catch (err) {
       throw err;
@@ -50,24 +51,24 @@ export const fetchProducts = () => {
 
 export const createProduct = (title, description, imageUrl, price) => {
   return async (dispatch, getState) => {
-    const { token } = getState().auth;
-    const { userId } = getState().auth;
+    const {token} = getState().auth;
+    const {userId} = getState().auth;
 
     const response = await fetch(
-      `https://expo-shop-7adf6.firebaseio.com/products.json?auth=${token}`,
+      `https://react-native-final-y4.firebaseio.com/products.json?auth=${token}`,
       {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           title,
           description,
           imageUrl,
           price,
-          ownerId: userId
-        })
-      }
+          ownerId: userId,
+        }),
+      },
     );
 
     const resData = await response.json();
@@ -80,29 +81,29 @@ export const createProduct = (title, description, imageUrl, price) => {
         description,
         imageUrl,
         price,
-        ownerId: userId
-      }
+        ownerId: userId,
+      },
     });
   };
 };
 
 export const updateProduct = (id, title, description, imageUrl) => {
   return async (dispatch, getState) => {
-    const { token } = getState().auth;
+    const {token} = getState().auth;
 
     const response = await fetch(
-      `https://expo-shop-7adf6.firebaseio.com/products/${id}.json?auth=${token}`,
+      `https://react-native-final-y4.firebaseio.com/products/${id}.json?auth=${token}`,
       {
         method: 'PATCH',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           title,
           description,
-          imageUrl
-        })
-      }
+          imageUrl,
+        }),
+      },
     );
 
     if (!response.ok) {
@@ -112,26 +113,26 @@ export const updateProduct = (id, title, description, imageUrl) => {
     dispatch({
       type: UPDATE_PRODUCT,
       pid: id,
-      productData: { title, description, imageUrl }
+      productData: {title, description, imageUrl},
     });
   };
 };
 
-export const deleteProduct = (productId) => {
+export const deleteProduct = productId => {
   return async (dispatch, getState) => {
-    const { token } = getState().auth;
+    const {token} = getState().auth;
 
     const response = await fetch(
-      `https://expo-shop-7adf6.firebaseio.com/products/${productId}.json?auth=${token}`,
+      `https://react-native-final-y4.firebaseio.com/products/${productId}.json?auth=${token}`,
       {
-        method: 'DELETE'
-      }
+        method: 'DELETE',
+      },
     );
 
     if (!response.ok) {
       throw new Error('Something went wrong');
     }
 
-    dispatch({ type: DELETE_PRODUCT, pid: productId });
+    dispatch({type: DELETE_PRODUCT, pid: productId});
   };
 };

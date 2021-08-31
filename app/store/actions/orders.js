@@ -1,13 +1,13 @@
-import { ADD_ORDER, SET_ORDERS } from '../../constants/ReduxConstants';
+import {ADD_ORDER, SET_ORDERS} from '../../constants/ReduxConstants';
 import Order from '../../models/order';
 
 export const fetchOrders = () => {
   return async (dispatch, getState) => {
     try {
-      const { userId } = getState().auth;
+      const {userId} = getState().auth;
 
       const response = await fetch(
-        `https://expo-shop-7adf6.firebaseio.com/orders/${userId}.json`
+        `https://react-native-final-y4.firebaseio.com/orders/${userId}.json`,
       );
 
       if (!response.ok) {
@@ -24,12 +24,12 @@ export const fetchOrders = () => {
             key,
             resData[key].cartItems,
             resData[key].totalAmount,
-            new Date(resData[key].date)
-          )
+            new Date(resData[key].date),
+          ),
         );
       }
 
-      dispatch({ type: SET_ORDERS, orders: loadedOrders });
+      dispatch({type: SET_ORDERS, orders: loadedOrders});
     } catch (err) {
       throw err;
     }
@@ -38,24 +38,24 @@ export const fetchOrders = () => {
 
 export const addOrder = (cartItems, totalAmount) => {
   return async (dispatch, getState) => {
-    const { token } = getState().auth;
-    const { userId } = getState().auth;
+    const {token} = getState().auth;
+    const {userId} = getState().auth;
 
     const date = new Date();
 
     const response = await fetch(
-      `https://expo-shop-7adf6.firebaseio.com/orders/${userId}.json?auth=${token}`,
+      `https://react-native-final-y4.firebaseio.com/orders/${userId}.json?auth=${token}`,
       {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           cartItems,
           totalAmount,
-          date: new Date().toISOString
-        })
-      }
+          date: new Date().toISOString,
+        }),
+      },
     );
 
     const resData = await response.json();
@@ -66,8 +66,8 @@ export const addOrder = (cartItems, totalAmount) => {
         id: resData.name,
         items: cartItems,
         amount: totalAmount,
-        date
-      }
+        date,
+      },
     });
   };
 };
